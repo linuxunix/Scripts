@@ -1,5 +1,5 @@
 # Scripts
-shell+python
+>shell+python
 
 unicode_to_utf8.py 是把unicode文件转换为utf8显示，执行命令： python unicode_to_utf-8.py 转换文件。
 
