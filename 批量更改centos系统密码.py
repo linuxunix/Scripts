@@ -17,14 +17,14 @@ def ssh2(ip,username,passwd,cmd):
         ssh.connect(ip, 22, username, passwd, timeout=15)
         stdin, stdout, stderr = ssh.exec_command(cmd)
         stdin.write("Y")
-        out = stdout.readlines()
+        out = stderr.readlines()
         if out:
-            print '========' + ip + "==================>OK"
+            print '========' + ip + "==================>ERROR"
             for o in out:
                 print o[:-1]
         else:
-            out = stderr.readlines()
-            print '========' + ip + "==================>ERROR"
+            out = stdout.readlines()
+            print '========' + ip + "==================>OK"
             for o in out:
                 print o[:-1]
     except Exception, e:
