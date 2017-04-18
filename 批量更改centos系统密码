@@ -7,7 +7,6 @@ def IP_list(ip_list):
         ip_list = f.readlines()
         for ip in ip_list:
             cmd="echo '{0}' | passwd --stdin {1}".format(ip.strip('\n').split(' ')[3],ip.strip('\n').split(' ')[1])
-            cmd='ifconfig'
             a = threading.Thread(target=ssh2, args=(ip.strip('\n').split(' ')[0], ip.strip('\n').split(' ')[1], ip.strip('\n').split(' ')[2], cmd))
             a.start()
 
