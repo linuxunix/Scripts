@@ -46,6 +46,7 @@ def Check_Service(service):
                 "content": "ELK节点中的{0}服务没有启动，正在执行启动。".format(service)
             },
         }
+        os.system(Service_start_cmd)
         Dingding_Send(send_data)
 
 
