@@ -11,7 +11,7 @@ Service_start_cmd ="cmd启动命令"
 
 def Check_Port(port):
     cmd_output = Popen("lsof -i:{0}".format(port), shell=True, stdout=PIPE, stderr=PIPE).communicate()
-    if  'LISTEN' not in str(cmd_output):
+    if  'ESTABLISHED' not in str(cmd_output)  or 'LISTEN' not in str(cmd_output):
         data = '{0}端口没有启动'.format(port)
         Log_Write(data)
         send_data= {
